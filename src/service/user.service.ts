@@ -2,13 +2,13 @@ import { getAllUserDB, getUserByIDDB, createUserDB } from '../repository/user.re
 import { iUser } from '../interfaces';
 
 
-const getAllUser = async () => {
+const getAllUser = async ():Promise <iUser> => {
     const data = await getAllUserDB();
-    if (!data.length) throw new Error("В базе данных отсутствует информация о пользователях");
+    if (!data) throw new Error("В базе данных отсутствует информация о пользователях");
     return data
 }
 
-const getUserByID = async (id:number) => {
+const getUserByID = async (id:number):Promise <iUser> => {
     const data = await getUserByIDDB(id);
     if (!data) throw new Error("Пользователя с таким id не существует");
     return data

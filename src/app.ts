@@ -1,4 +1,4 @@
-import express from 'express';
+import express, {Request, Response} from 'express';
 import bodyParser from 'body-parser';
 import user from '../src/controller/user.controller'
 
@@ -8,7 +8,7 @@ app.use(bodyParser.json());
 
 app.use('/user', user)
 
-app.use((err, req, res, next) => {
+app.use((err, req:Request, res:Response, next) => {
     res.send(err.message)
 })
 

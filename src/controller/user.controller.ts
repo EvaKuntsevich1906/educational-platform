@@ -1,19 +1,32 @@
 import express from 'express';
-
+import { getAllUser, getUserByID, createUser } from '../service/user.service';
 const route = express.Router();
 
-//test route
-route.get('/', (req, res) => {
+route.get('/', async (req, res) => {
     try {
-        res.send("okay")
+        const data = await getAllUser();
+        res.send(data);
     } catch (err: any) {
         res.send(err.message)
     }
 });
 
-route.get('/', (req, res) => {
+route.get('/:id', async (req, res) => {
     try {
+        const {id} = req.params;
+        console.log(id);
+        const data = await getUserByID(id);
+        res.send(data);
+    } catch (err: any) {
+        res.send(err.message)
+    }
+});
 
+route.post('/', async (req, res) => {
+    try {
+        const { name, surname, email, pwd } = req.body;
+        const data = await createUser(name, surname, email, pwd);
+        res.send(data)
     } catch (err: any) {
         res.send(err.message)
     }

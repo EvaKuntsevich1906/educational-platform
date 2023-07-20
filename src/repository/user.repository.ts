@@ -10,7 +10,6 @@ const getAllUserDB = async (): Promise<iUser> => {
 
 const getUserByIDDB = async (id: number): Promise<iUser> => {
     const client = await pool.connect();
-    console.log(id);
     const sql = `SELECT * FROM USERS WHERE id = $1`;
     const result = (await client.query(sql, [id])).rows;
     return result
@@ -23,9 +22,18 @@ const createUserDB = async (name: string, surname: string, email: string, pwd: s
     return result
 }
 
-
-const updateUserByIDDB = async (id: number) => {
+const updateUserByIDDB = async (name: string, surname: string, email: string, pwd: string, id: number) => {
     const client = await pool.connect();
-
+    const sql = `UPDATE USERS SET NAME = $1,SURNAME = $2, EMAIL = $3, PWD = $4 WHERE id = $5 RETURNING *`
+    const result = (await client.query(sql, [name, surname, email, pwd, id])).rows;
+    return result; 
 }
-export { getAllUserDB, getUserByIDDB, createUserDB }
+
+const deleteUserByIDDB = async (id: number) => {
+    const client = await pool.connect();
+    const sql = `DELETE FROM USERS WHERE id = $1 RETURNING *`
+    const result = (await client.query(sql, [id])).rows;
+    return result; 
+}
+
+export { getAllUserDB, getUserByIDDB, createUserDB, updateUserByIDDB, deleteUserByIDDB }

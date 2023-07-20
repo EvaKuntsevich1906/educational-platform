@@ -1,11 +1,11 @@
 import express, { Request, Response } from 'express';
-import { getAllUser, getUserByID, createUser, updateUserByID, deleteUserByID } from '../service/user.service';
+import { getAllCourse, getCourseByID, createCourse, updateCourseByID, deleteCourseByID } from '../service/course.service';
 import { buildResponse } from '../helper/buildResponse';
 const route = express.Router();
 
 route.get('/', async (req: Request, res: Response): Promise<void> => {
     try {
-        const data = await getAllUser();
+        const data = await getAllCourse();
         buildResponse(res, 200, data)
     } catch (err: any) {
         buildResponse(res, 404, err.message)
@@ -15,7 +15,7 @@ route.get('/', async (req: Request, res: Response): Promise<void> => {
 route.get('/:id', async (req: Request, res: Response): Promise<void> => {
     try {
         const { id } = req.params;
-        const data = await getUserByID(id);
+        const data = await getCourseByID(id);
         buildResponse(res, 200, data)
     } catch (err: any) {
         buildResponse(res, 404, err.message)
@@ -24,8 +24,8 @@ route.get('/:id', async (req: Request, res: Response): Promise<void> => {
 
 route.post('/', async (req: Request, res: Response) => {
     try {
-        const { name, surname, email, pwd } = req.body;
-        const data = await createUser(name, surname, email, pwd);
+        const {course } = req.body;
+        const data = await createCourse(course);
         buildResponse(res, 200, data)
     } catch (err: any) {
         buildResponse(res, 404, err.message)
@@ -34,8 +34,8 @@ route.post('/', async (req: Request, res: Response) => {
 
 route.post('/:id', async (req: Request, res: Response) => {
     try {
-        const { name, surname, email, pwd } = req.body;
-        const data = await createUser(name, surname, email, pwd);
+        const {course } = req.body;
+        const data = await createCourse(course);
         buildResponse(res, 200, data)
     } catch (err: any) {
         res.send(err.message)
@@ -44,9 +44,9 @@ route.post('/:id', async (req: Request, res: Response) => {
 
 route.put('/:id', async (req, res) => {
     try {
-        const { name, surname, email, pwd } = req.body;
+        const { course } = req.body;
         const { id } = req.params;
-        const data = await updateUserByID(name, surname, email, pwd, id);
+        const data = await updateCourseByID(course,  id);
         buildResponse(res, 200, data)
     } catch (err: any) {
         buildResponse(res, 404, err.message);
@@ -56,7 +56,7 @@ route.put('/:id', async (req, res) => {
 route.delete('/:id', async (req, res) => {
     try {
         const { id } = req.params;
-        const data = await deleteUserByID (id);
+        const data = await deleteCourseByID (id);
         buildResponse(res, 200, data);
     } catch (err: any) {
         buildResponse(res, 404, err.message);

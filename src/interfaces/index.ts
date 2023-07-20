@@ -4,6 +4,11 @@ interface iUser {
     surname: string, 
     email: string, 
     pwd:string
-}
+}; 
 
-export {iUser}
+interface iCourse {
+    id:number,
+    course: string
+}; 
+
+export {iUser, iCourse}

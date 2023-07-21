@@ -1,5 +1,5 @@
 import express, { Request, Response } from 'express';
-import { getAllUser, getUserByID, createUser, updateUserByID, deleteUserByID } from '../service/user.service';
+import { getAllUser, getUserByID, updateUserByID, deleteUserByID } from '../service/user.service';
 import { buildResponse } from '../helper/buildResponse';
 const route = express.Router();
 
@@ -19,26 +19,6 @@ route.get('/:id', async (req: Request, res: Response): Promise<void> => {
         buildResponse(res, 200, data)
     } catch (err: any) {
         buildResponse(res, 404, err.message)
-    }
-});
-
-route.post('/', async (req: Request, res: Response) => {
-    try {
-        const { name, surname, email, pwd } = req.body;
-        const data = await createUser(name, surname, email, pwd);
-        buildResponse(res, 200, data)
-    } catch (err: any) {
-        buildResponse(res, 404, err.message)
-    }
-});
-
-route.post('/:id', async (req: Request, res: Response) => {
-    try {
-        const { name, surname, email, pwd } = req.body;
-        const data = await createUser(name, surname, email, pwd);
-        buildResponse(res, 200, data)
-    } catch (err: any) {
-        res.send(err.message)
     }
 });
 

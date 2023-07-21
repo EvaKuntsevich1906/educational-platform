@@ -1,4 +1,4 @@
-import { getAllUserDB, getUserByIDDB, createUserDB, updateUserByIDDB , deleteUserByIDDB} from '../repository/user.repository'
+import { getAllUserDB, getUserByIDDB, updateUserByIDDB , deleteUserByIDDB} from '../repository/user.repository'
 import { iUser } from '../interfaces';
 
 const getAllUser = async ():Promise <iUser> => {
@@ -13,12 +13,6 @@ const getUserByID = async (id:number):Promise <iUser> => {
     return data
 }
 
-const createUser = async (name: string, surname: string, email: string, pwd: string):Promise <iUser> => {
-    const data = await createUserDB(name, surname, email, pwd);
-    if (!data) throw new Error("Такого id нет ")
-    return data
-}
-
 const updateUserByID= async (name: string, surname: string, email: string, pwd: string, id: number):Promise <iUser> => {
     const data = await updateUserByIDDB (name, surname, email, pwd, id);
     if (!data) throw new Error("Такого пользователя не существует ")
@@ -29,4 +23,4 @@ const deleteUserByID= async (id: number) :Promise <iUser> => {
     if (!data) throw new Error("Такого пользователя не существует ")
     return data
 }
-export { getAllUser, getUserByID, createUser, updateUserByID, deleteUserByID }
+export { getAllUser, getUserByID, updateUserByID, deleteUserByID }

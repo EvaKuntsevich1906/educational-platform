@@ -1,15 +1,16 @@
 import express, { Request, Response } from 'express';
 import { buildResponse } from '../helper/buildResponse';
-import { registration } from '../service/api.service';
-const route = express.Route();
+import {registration} from '../service/api.service'
+const route = express.Router();
 
-
-route.get('/registration', async (req: Request, res: Response) => {
+route.post('/reg', async (req: Request, res: Response): Promise<void> => {
     try {
-        const {namr, surname} = req.body;
-        const data = await registration();
+        const { name, surname, email, pwd } = req.body;
+        const data = await registration(name, surname, email, pwd);
         buildResponse(res, 200, data)
     } catch (err: any) {
         buildResponse(res, 404, err.message)
     }
 });
+
+export default route;

@@ -8,4 +8,11 @@ const registrationDB = async (name: string, surname: string, email: string, pwd:
     return result
 }
 
-export {registrationDB}
+const getByEmail  = async (email: string): Promise<iUser[]> => {
+    const client = await pool.connect();
+    const sql = `SELECT * FROM USERS WHERE email = $1`;
+    const result = (await client.query(sql, [email])).rows;
+    return result
+}
+
+export {registrationDB, getByEmail}

@@ -1,14 +1,14 @@
 import pool from '../db';
 import { iUser } from '../interfaces';
 
-const getAllUserDB = async (): Promise<iUser> => {
+const getAllUserDB = async (): Promise<iUser[]> => {
     const client = await pool.connect();
     const sql = `SELECT * FROM USERS`;
     const result = (await client.query(sql)).rows;
     return result
 };
 
-const getUserByIDDB = async (id: number): Promise<iUser> => {
+const getUserByIDDB = async (id: number): Promise<iUser[]> => {
     const client = await pool.connect();
     const sql = `SELECT * FROM USERS WHERE id = $1`;
     const result = (await client.query(sql, [id])).rows;

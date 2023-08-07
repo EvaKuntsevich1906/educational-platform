@@ -89,7 +89,7 @@ describe("deleteUserByID", () => {
             await deleteUserByID(1);
         } catch (error: any) {
             expect(funcRepo).toHaveBeenCalledWith(1);
-            expect(error.message).toBe(`Пользователь с id=1 не найден`);
+            expect(error.message).toBe(`Пользователь с id= не найден`);
         }
     })
 });

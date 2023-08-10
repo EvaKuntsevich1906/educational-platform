@@ -1,5 +1,5 @@
 import { createCourse, getAllCourse, getCourseByID } from "../../src/service/course.service";
-import * as repository from '../../src/repository/course.reposutory';
+import * as repository from '../../src/repository/course.repository';
 
 
 describe("createCourse", () => {

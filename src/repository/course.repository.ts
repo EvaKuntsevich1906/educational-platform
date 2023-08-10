@@ -1,11 +1,16 @@
 import pool from '../db';
 import { iCourse } from '../interfaces';
 
+
 const getAllCourseDB = async (): Promise <iCourse []> => {
     const client = await pool.connect();
-    const sql = `SELECT * FROM COURSES`;
-    const result = (await client.query(sql)).rows;
-    return result
+
+        await client.query('BEGIN');
+        const sql = 'SELECT * FROM courses';
+        const result = (await client.query(sql)).rows
+        await client.query('COMMIT');
+        return result;
+
 };
 
 const getCourseByIDDB = async (id: number): Promise <iCourse []> => {
@@ -17,15 +22,17 @@ const getCourseByIDDB = async (id: number): Promise <iCourse []> => {
 
 const createCourseDB = async (course: string): Promise <iCourse []> => {
     const client = await pool.connect();
-    const arr: iCourse[] = await getAllCourseDB();
-    const sql = `INSERT INTO COURSES (COURSE) VALUES ($1) RETURNING * `;
-    const result = (await client.query(sql, [course])).rows;
-    arr.forEach(element => {
-        console.log(element);
-        console.log(course);
+    try {
+        await client.query('BEGIN');
+        const sql = 'INSERT INTO courses (course) VALUES ($1) RETURNING*';
+        const result = (await client.query(sql, [course])).rows;
+        await client.query('COMMIT');
+        return result;
 
-        if (element.course == course) throw new Error(`this course already exists`);
-    });return result
+    } catch (err) {
+        client.query('ROLLBACK');
+        return [];
+    }
 }
 
 const updateCourseByIDDB = async ( course: string, id: number): Promise <iCourse []> => {

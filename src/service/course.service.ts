@@ -1,4 +1,4 @@
-import { getAllCourseDB, getCourseByIDDB, createCourseDB, updateCourseByIDDB, deleteCourseByIDDB } from '../repository/course.reposutory';
+import { getAllCourseDB, getCourseByIDDB, createCourseDB, updateCourseByIDDB, deleteCourseByIDDB } from '../repository/course.repository';
 import { iCourse } from '../interfaces';
 
 const getAllCourse = async (): Promise<iCourse []> => {

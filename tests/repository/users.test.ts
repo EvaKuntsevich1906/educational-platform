@@ -52,3 +52,4 @@ describe("updateUserByIDDB", () => {
         expect(mockClient.query).toHaveBeenCalled();
     })
 });
+

@@ -1,0 +1,24 @@
+.wrapper h1 {
+    color: black;
+    font: 400 16px "Dela Gothic One";
+}
+
+.wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.wrapper .flexBtn {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+}
+
+.wrapper .flexBtn .regBtn {
+    color: white;
+    font: 700 17px "Montserrat";
+    background-color: #2B788B;
+    padding: 13px 21px;
+    border-radius: 14px;
+}

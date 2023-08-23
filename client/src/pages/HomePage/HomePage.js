@@ -1,11 +1,12 @@
 import Header from "../../components/Header/Header"
-
-const HomePage = () => {
+import Preview from "../../components/Preview/Preview";
+function HomePage (){
     return (
-    <div>
-        <Header></Header> 
-    </div>
+        <div>
+            <Header/>
+            <Preview/>
+ 
+        </div>
     )
 }
-
-export default HomePage
+export default HomePage;

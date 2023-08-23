@@ -7,6 +7,8 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+    margin: 30px auto 0;
+    width: 1220px;
 }
 
 .wrapper .flexBtn {
@@ -14,7 +16,12 @@
     align-items: center;
     gap: 24px;
 }
-
+.wrapper .flexBtn .loginBtn {
+    color: black;
+    font: 700 17px "Montserrat";
+    padding: 13px 21px;
+    border-radius: 14px;
+}
 .wrapper .flexBtn .regBtn {
     color: white;
     font: 700 17px "Montserrat";

@@ -1,0 +1,194 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+.preview {
+  display: flex;
+  padding-top: 118px;
+  margin: auto;
+  width: 1220px;
+  margin: 6% auto;
+}
+.info .ecourse {
+  color: #2b788b;
+  font: 700 16px "Montserrat";
+}
+.info h1 {
+  margin-top: 24px;
+  width: 500px;
+  color: black;
+  font: 400 56px "Dela Gothic One";
+  line-height: 120%; /* 67.2px */
+  letter-spacing: -2.24px;
+}
+.info .text {
+  margin-top: 30px;
+  color: #757575;
+  font: 600 16px "Montserrat";
+}
+.btnAbout {
+  margin-top: 32px;
+  color: #2b788b;
+  display: inline-block;
+  padding: 14px 22px;
+  border-radius: 100px;
+  background-color: #c3dce3;
+  font: 700 16px "Montserrat";
+}
+.btnAbout:hover {
+  cursor: pointer;
+}
+.image {
+  width: 933px;
+  height: 601px;
+  background-image: url(./Frame_24.png);
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+.statistic {
+  margin-top: 48px;
+}
+.statistic div {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  font: 400 40px "Dela Gothic One";
+}
+.statistic div .thunder {
+  width: 24px;
+  height: 30px;
+  background: url("./assets/Frame\ 35271.svg") no-repeat;
+}
+.statistic div span {
+  color: #2b788b;
+}
+.statistic p {
+  color: #585858;
+  font: 600 16px "Montserrat";
+}
+.wrapperBCG {
+  background-color: #fff;
+}
+.language {
+  margin: auto;
+  display: flex;
+  justify-content: space-between;
+  width: 1220px;
+  margin: auto;
+  padding: 7% 0;
+}
+.imgLanguages {
+  background: url(./assets/image\ 8.png) no-repeat;
+  background-size: contain;
+  width: 580px;
+  height: 445px;
+}
+.language .information {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 488px;
+  gap: 10px;
+}
+.language .information h1 {
+  font: 400 48px "Dela Gothic One";
+}
+.language .information p {
+  color: #757575;
+  font: 600 18px "Montserrat";
+}
+.language .btnImgs {
+  display: flex;
+  gap: 20px;
+}
+.language .imgSprints {
+  background: url("./assets/Group\ 11.png") no-repeat;
+  background-size: contain;
+  width: 131px;
+  height: 145px;
+}
+.language .imgTasks {
+  background: url("./assets/Group\ 10.png") no-repeat;
+  background-size: contain;
+  width: 172px;
+  height: 145px;
+}
+.knowledge {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 1220px;
+  margin: 6% auto;
+}
+.knowledgeText {
+  width: 475px;
+  display: flex;
+  flex-direction: column;
+  gap: 38px;
+}
+.knowledgeText h1 {
+  color: black;
+  font: 400 48px "Dela Gothic One";
+}
+.knowledgeText p {
+  color: #757573;
+  font: 600 18px "Montserrat";
+}
+.knowledge .buttonKnlg {
+  width: 131px;
+  text-align: center;
+  border-radius: 100px;
+  background-color: #c3dce3;
+  color: #2b788b;
+  font: 700 16px "Montserrat";
+  padding: 14px 0;
+}
+.knowledge .knowledgeTextImg {
+  background: url("./assets/image\ 2.png") no-repeat;
+  background-size: contain;
+  width: 588px;
+  height: 473px;
+}
+.knowledgeText .buttonKnlg {
+  cursor: pointer;
+}
+.progress {
+  display: flex;
+  justify-content: space-between;
+  width: 1220px;
+  padding: 7% 0;
+  margin: 6% auto; /* ? */
+}
+.progressImg {
+  background: url("./assets/image\ 1.png") no-repeat;
+  background-size: contain;
+  width: 680px;
+  height: 409px;
+}
+.progressText {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  gap: 20px;
+}
+.progressText h1 {
+  font: 400 48px "Dela Gothic One";
+}
+.progressText p {
+  color: #757573;
+  font: 600 18px "Montserrat";
+}
+.progress .progressBtn {
+  width: 131px;
+  text-align: center;
+  border-radius: 100px;
+  background-color: #c3dce3;
+  color: #2b788b;
+  font: 600 16px "Montserrat";
+  padding: 14px 0;
+}
+.progress .progressBtn:hover {
+  cursor: pointer;
+}

@@ -47,9 +47,11 @@ function Preview() {
         </div>
         <div className={style.knowledgeTextImg}></div>
       </div>
+
+      
       <div className={style.wrapperBCG}>
         <div className={style.progress}>
-          <div className={style.progressImg}></div>
+          <div className={style.progressImage}></div>
           <div className={style.progressText}>
             <h1>Watch your progress every day</h1>
             <p>Save statistics on your achievements and mistakes</p>
@@ -58,6 +60,7 @@ function Preview() {
         </div>
       </div>
     </div>
+
   );
 }
 

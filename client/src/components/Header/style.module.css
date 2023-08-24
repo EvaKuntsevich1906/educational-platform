@@ -22,7 +22,7 @@
     padding: 13px 21px;
     border-radius: 14px;
 }
-.wrapper .flexBtn .regBtn {
+.wrapper .flexBtn .regBtn a {
     color: white;
     font: 700 17px "Montserrat";
     background-color: #2B788B;
